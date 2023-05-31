@@ -40,30 +40,22 @@ class Commentator:
             )
         )
 
-    def compare_players(self, p1, p2, attr):
-        a1 = getattr(p1, attr)
-        a2 = getattr(p2, attr)
-        if a1 == a2:
-            s1 = p1.strength()
-            s2 = p2.strength()
-            if s1 == s2:
-                sum1 = self.sum_player(p1)
-                sum2 = self.sum_player(p2)
-                if sum1 == sum2:
-                    return "These two players might as well be twins!"
-                if sum1 > sum2:
-                    return p1.name
-                else:
-                    return p2.name
-            elif s1 > s2:
-                return p1.name
-            else:
-                return p2.name
-        elif a1 > a2:
-            return p1.name
-        else:
-            return p2.name
+    def compare_players(self, player_1, player_2, attr):
+        def get_stats(player):
+            return (
+                getattr(player, attr),
+                player.strength(),
+                self.sum_player(player)
+            )
+        p1 = get_stats(player_1)
+        p2 = get_stats(player_2)
+        if p1 > p2:
+            return player_1.name
+        if p1 < p2:
+            return player_2.name
+        return "These two players might as well be twins!"
 
-
-alice = Player('Alice', 0.8, 0.2, 0.6)
-bob = Player('Bob', 0.9, 0.2, 0.6)
+if __name__ == "__main__":
+    alice = Player('Alice', 0.8, 0.2, 0.6)
+    bob = Player('Bob', 0.9, 0.2, 0.6)
+    Commentator.compare_players(alice, bob, 'speed')
