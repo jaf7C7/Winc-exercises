@@ -18,9 +18,18 @@ import csv
 from datetime import date
 
 
-# Your code below this line.
 def main():
     pass
+
+
+# TODO:
+# def parse_args(args):
+# def report(subject, when):
+# def buy(product, quantity, price, expires):
+# def sell(product, price, quantity):
+# def set_date(date):
+# def advance_date(days):
+# def list_expired(date):
 
 
 if __name__ == "__main__":
