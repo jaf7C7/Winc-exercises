@@ -51,6 +51,12 @@ def parse_args(args):
     advance_date_parser = subparsers.add_parser("advance-date")
     advance_date_parser.add_argument("days", type=int, nargs="?", default=1)
 
+    list_expired_parser = subparsers.add_parser("list-expired")
+    list_expired_parser.add_argument("--today", action="store_true", default=True)
+    list_expired_parser.add_argument("--tomorrow", action="store_true")
+    list_expired_parser.add_argument("--yesterday", action="store_true")
+    list_expired_parser.add_argument("--date", dest="date")
+
     return parser.parse_args(args)
 
 
