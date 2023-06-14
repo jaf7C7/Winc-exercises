@@ -56,3 +56,7 @@ class TestParseArgs:
     def test_set_date(self):
         args = parse_args("set-date 1970-01-01".split())
         assert args.subcommand == "set-date" and args.date == "1970-01-01"
+
+    def test_advance_date(self):
+        args = parse_args("advance-date 7".split())
+        assert args.subcommand == "advance-date" and args.days == 7
