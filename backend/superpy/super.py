@@ -45,6 +45,9 @@ def parse_args(args):
     sell_parser.add_argument("--price", required=True, type=float)
     sell_parser.add_argument("--quantity", type=int, default=1)
 
+    set_date_parser = subparsers.add_parser("set-date")
+    set_date_parser.add_argument("date")
+
     return parser.parse_args(args)
 
 
