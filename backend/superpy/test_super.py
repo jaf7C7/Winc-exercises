@@ -1,18 +1,11 @@
 # USAGE:
 #
-# superpy report [ inventory | revenue | profit | date ] [ --today | --yesterday | --date <date> ]
-# superpy buy --product <name> --price <price> --quantity <quantity> [ --expires <date> ]
-# superpy sell --product <name> --price <price> --quantity <quantity>
+# superpy report [ inventory | revenue | profit | date ] [ --today | --tomorrow | --yesterday | --date <date=today> ]
+# superpy buy --product <name> --price <price> --quantity <quantity=1> [ --expires <date=None> ]
+# superpy sell --product <name> --price <price> --quantity <quantity=1>
 # superpy set-date <date>
-# superpy advance-date <days>
-# superpy list-expired [ --date <date> | --today | --tomorrow ]
-#
-# DEFAULTS:
-# <no args> defaults to 'help'
-# <when> defaults to '--today'
-# '--quantity' defaults to 1
-# 'advance-date' defaults to 1
-
+# superpy advance-date [<days=1> ]
+# superpy list-expired [ --today | --tomorrow | --yesterday | --date <date=today> ]
 
 from super import *
 
