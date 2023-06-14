@@ -52,3 +52,7 @@ class TestParseArgs:
             and args.price == 0.75
             and args.quantity == 1
         )
+
+    def test_set_date(self):
+        args = parse_args("set-date 1970-01-01".split())
+        assert args.subcommand == "set-date" and args.date == "1970-01-01"
