@@ -40,6 +40,11 @@ def parse_args(args):
     buy_parser.add_argument("--quantity", type=int, default=1)
     buy_parser.add_argument("--expires")
 
+    sell_parser = subparsers.add_parser("sell")
+    sell_parser.add_argument("--product", required=True)
+    sell_parser.add_argument("--price", required=True, type=float)
+    sell_parser.add_argument("--quantity", type=int, default=1)
+
     return parser.parse_args(args)
 
 
