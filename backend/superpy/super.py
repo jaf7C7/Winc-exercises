@@ -34,6 +34,12 @@ def parse_args(args):
     report_parser.add_argument("--yesterday", action="store_true")
     report_parser.add_argument("--date", dest="date")
 
+    buy_parser = subparsers.add_parser("buy")
+    buy_parser.add_argument("--product", required=True)
+    buy_parser.add_argument("--price", required=True, type=float)
+    buy_parser.add_argument("--quantity", type=int, default=1)
+    buy_parser.add_argument("--expires")
+
     return parser.parse_args(args)
 
 
