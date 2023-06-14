@@ -60,3 +60,13 @@ class TestParseArgs:
     def test_advance_date(self):
         args = parse_args("advance-date 7".split())
         assert args.subcommand == "advance-date" and args.days == 7
+
+    def test_list_expired(self):
+        args = parse_args("list-expired".split())
+        assert args.subcommand == "list-expired" and date.today
+        args = parse_args("list-expired --tomorrow".split())
+        assert args.tomorrow
+        args = parse_args("list-expired --yesterday".split())
+        assert args.yesterday
+        args = parse_args("list-expired --date 1970-01-01".split())
+        assert hasattr(args, "date")
