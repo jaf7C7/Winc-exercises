@@ -41,3 +41,14 @@ class TestParseArgs:
             and args.quantity == 10
             and args.expires == "2023-08-01"
         )
+
+    def test_sell(self):
+        args = parse_args(
+            "sell --product apples --price 0.75 --quantity 1".split()
+        )
+        assert (
+            args.subcommand == "sell"
+            and args.product == "apples"
+            and args.price == 0.75
+            and args.quantity == 1
+        )
