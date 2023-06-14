@@ -22,8 +22,23 @@ def main():
     pass
 
 
+def parse_args(args):
+    parser = argparse.ArgumentParser()
+    subparsers = parser.add_subparsers(dest="subcommand")
+
+    report_parser = subparsers.add_parser("report")
+    report_parser.add_argument(
+        "subject", choices=["inventory", "revenue", "profit", "date"]
+    )
+    report_parser.add_argument("--today", action="store_true", default=True)
+    report_parser.add_argument("--tomorrow", action="store_true")
+    report_parser.add_argument("--yesterday", action="store_true")
+    report_parser.add_argument("--date", dest="date")
+
+    return parser.parse_args(args)
+
+
 # TODO:
-# def parse_args(args):
 # def report(subject, when):
 # def buy(product, quantity, price, expires):
 # def sell(product, price, quantity):
