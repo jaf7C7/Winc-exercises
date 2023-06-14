@@ -29,7 +29,7 @@ def parse_args(args):
     report_parser.add_argument(
         "subject", choices=["inventory", "revenue", "profit", "date"]
     )
-    report_parser.add_argument("--today", action="store_true", default=True)
+    report_parser.add_argument("--today", action="store_true")
     report_parser.add_argument("--tomorrow", action="store_true")
     report_parser.add_argument("--yesterday", action="store_true")
     report_parser.add_argument("--date", dest="date")
@@ -37,22 +37,22 @@ def parse_args(args):
     buy_parser = subparsers.add_parser("buy")
     buy_parser.add_argument("--product", required=True)
     buy_parser.add_argument("--price", required=True, type=float)
-    buy_parser.add_argument("--quantity", type=int, default=1)
+    buy_parser.add_argument("--quantity", type=int)
     buy_parser.add_argument("--expires")
 
     sell_parser = subparsers.add_parser("sell")
     sell_parser.add_argument("--product", required=True)
     sell_parser.add_argument("--price", required=True, type=float)
-    sell_parser.add_argument("--quantity", type=int, default=1)
+    sell_parser.add_argument("--quantity", type=int)
 
     set_date_parser = subparsers.add_parser("set-date")
     set_date_parser.add_argument("date")
 
     advance_date_parser = subparsers.add_parser("advance-date")
-    advance_date_parser.add_argument("days", type=int, nargs="?", default=1)
+    advance_date_parser.add_argument("days", type=int, nargs="?")
 
     list_expired_parser = subparsers.add_parser("list-expired")
-    list_expired_parser.add_argument("--today", action="store_true", default=True)
+    list_expired_parser.add_argument("--today", action="store_true")
     list_expired_parser.add_argument("--tomorrow", action="store_true")
     list_expired_parser.add_argument("--yesterday", action="store_true")
     list_expired_parser.add_argument("--date", dest="date")

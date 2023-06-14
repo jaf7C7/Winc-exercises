@@ -70,3 +70,13 @@ class TestParseArgs:
         assert args.yesterday
         args = parse_args("list-expired --date 1970-01-01".split())
         assert hasattr(args, "date")
+
+    def test_default_values(self):
+        args = parse_args("report profit".split())
+        assert args.today == True
+        args = parse_args("buy --product foo --price 1".split())
+        assert args.quantity == 1 and args.expires == None
+        args = parse_args("sell --product bar --price 10".split())
+        assert args.quantity == 1
+        args = parse_args("advance-date".split())
+        assert args.days == 1
