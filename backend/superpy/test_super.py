@@ -30,3 +30,14 @@ class TestParseArgs:
                 else:
                     assert hasattr(args, "date")
 
+    def test_buy(self):
+        args = parse_args(
+            "buy --product oranges --price 1.5 --quantity 10 --expires 2023-08-01".split()
+        )
+        assert (
+            args.subcommand == "buy"
+            and args.product == "oranges"
+            and args.price == 1.5
+            and args.quantity == 10
+            and args.expires == "2023-08-01"
+        )
