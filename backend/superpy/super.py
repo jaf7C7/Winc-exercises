@@ -48,6 +48,9 @@ def parse_args(args):
     set_date_parser = subparsers.add_parser("set-date")
     set_date_parser.add_argument("date")
 
+    advance_date_parser = subparsers.add_parser("advance-date")
+    advance_date_parser.add_argument("days", type=int, nargs="?", default=1)
+
     return parser.parse_args(args)
 
 
