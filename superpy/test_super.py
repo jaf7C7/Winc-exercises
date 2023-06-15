@@ -80,3 +80,7 @@ class TestParseArgs:
         assert args.quantity == 1
         args = parse_args("advance-date".split())
         assert args.days == 1
+
+    def test_conflicting_arguments(self):
+        # Pass conflicting arguments and test for desired behaviour
+        pass

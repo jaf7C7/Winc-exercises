@@ -11,7 +11,6 @@ __human_name__ = "superpy"
 # superpy advance-date [<days=1> ]
 # superpy list-expired [ --today | --tomorrow | --yesterday | --date <date=today> ]
 
-
 import argparse
 import csv
 from datetime import date
@@ -52,7 +51,9 @@ def parse_args(args):
     advance_date_parser.add_argument("days", type=int, nargs="?", default=1)
 
     list_expired_parser = subparsers.add_parser("list-expired")
-    list_expired_parser.add_argument("--today", action="store_true", default=True)
+    list_expired_parser.add_argument(
+        "--today", action="store_true", default=True
+    )
     list_expired_parser.add_argument("--tomorrow", action="store_true")
     list_expired_parser.add_argument("--yesterday", action="store_true")
     list_expired_parser.add_argument("--date", dest="date")
